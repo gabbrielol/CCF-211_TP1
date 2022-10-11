@@ -16,6 +16,11 @@ typedef struct lista_palavra {
     apontador_lista ultimo_lista;
 } tipo_lista_palavra;
 
+typedef struct numero_palavras {
+    int num_palavras;
+} tipo_numero_palavras;
+
+
 // Função para inicializar uma lista de palavras vazia
 void inicializa_lista_palavra_vazia(tipo_lista_palavra *lista_palavra);
 
@@ -29,10 +34,10 @@ void remove_palavra_final(tipo_lista_palavra *lista_palavra, tipo_palavra *palav
 void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_remover);
 
 // Função para verficar se uma palavra específica está na lista de palavras
-void verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica);
+int verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica);
 
 // Função para contar o número de palavras e retornar o número de palavras
-int retorna_numero_palavra(tipo_lista_palavra *lista_palavra);
+int retorna_numero_palavra(tipo_lista_palavra *lista_palavra, tipo_numero_palavras *num_palavras);
 
 // Função para imprimir toda a lista de palavras
 void imprime_lista_palavra(tipo_lista_palavra *lista_palavra);

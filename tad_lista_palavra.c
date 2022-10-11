@@ -45,38 +45,43 @@ void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavr
             p_remover = p_aux -> p_prox_lista;
             p_aux -> p_prox_lista = p_aux -> p_prox_lista -> p_prox_lista;
             free(p_remover);
+            if (p_aux -> p_prox_lista == NULL) {
+                break;
+            }
         }
         p_aux = p_aux -> p_prox_lista;
     }
 }
 
-void verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica) {
+int verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica) {
     tipo_celula_lista *p_aux;
-    int pos = 0, cont = 0;
+    int cont;
+    int pos;
+    cont = 0;
+    pos = 0;
     p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
     while (p_aux != NULL) {
         pos++;
         if (!strcmp(p_aux -> item_palavra.cadeia_caracteres, palavra_verifica)) {
-            printf("O elemento <%s> está na %d posicao da lista!\n", palavra_verifica, pos);
             cont++;
+            return 1;
         }
         p_aux = p_aux -> p_prox_lista;
     }
     if (cont == 0) {
-        printf("O elemento <%s> não está na lista!\n", palavra_verifica);
+        return 0;
     }
 }
 
-int retorna_numero_palavra(tipo_lista_palavra *lista_palavra) {
-    int num_palavras;
-    num_palavras = 0;
+int retorna_numero_palavra(tipo_lista_palavra *lista_palavra, tipo_numero_palavras *numero_palavras) {
+    numero_palavras -> num_palavras = 0;
     apontador_lista p_aux;
     p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
     while (p_aux != NULL) {
-        num_palavras++;
+        numero_palavras -> num_palavras++;
         p_aux = p_aux -> p_prox_lista;
     }
-    return num_palavras;
+    return numero_palavras -> num_palavras;
 }
 
 void imprime_lista_palavra(tipo_lista_palavra* lista_palavra) {
