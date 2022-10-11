@@ -57,4 +57,5 @@ int main() {
     imprime_lista_palavra(&lista_palavra);
     printf("%d", linhas);
     return 0;
+    // teste git_hub
 }
