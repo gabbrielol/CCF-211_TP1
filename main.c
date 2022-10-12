@@ -19,7 +19,6 @@ int main() {
     linha = 1;
 
     inicializa_lista_palavra_vazia(&lista_palavra);
-    inicializa_palavra_vazia(&palavra);
 
     FILE *file;
 
