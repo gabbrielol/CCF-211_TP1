@@ -31,6 +31,7 @@ void remove_palavra_final(tipo_lista_palavra *lista_palavra, tipo_palavra *palav
         printf("A última palavra da lista de palavra foi removida com sucesso!\n");
     }
 }
+
 void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_remover) {
     tipo_celula_lista *verifica_celula;
     tipo_celula_lista *p_aux;
@@ -55,7 +56,10 @@ void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavr
 
 void verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica) {
     tipo_celula_lista *p_aux;
-    int pos = 0, cont = 0;
+    int pos = 0;
+    int cont = 0;
+    pos = 0;
+    cont = 0;
     p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
     while (p_aux != NULL) {
         pos++;
