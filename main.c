@@ -5,7 +5,7 @@
 
 int main() {
     tipo_palavra palavra;
-    tipo_numero_palavras num_palavras;
+    tipo_numero_palavras numero_palavras;
     tipo_lista_palavra lista_palavra;
 
     char caractere_texto;
@@ -38,13 +38,16 @@ int main() {
         if (verifica_palavra_insere(&lista_palavra, &palavra, palavra_verifica) == 0) {
             inicializa_palavra_vazia(&palavra);
             preenche_cadeia_caracteres(&palavra, palavra_texto);
-            insere_linha_palavra(&palavra, linha);
+            //insere_linha_palavra(&palavra, linha);
             insere_nova_palavra(&lista_palavra, &palavra);
         }
         if (verifica_palavra_insere(&lista_palavra, &palavra, palavra_verifica) == 1) {
-            insere_linha_palavra(&palavra, linha);
+            //insere_linha_palavra(&palavra, linha);
         }
     }
+
+    imprime_lista_palavra(&lista_palavra);
+    printf("%d palavras únicas no texto\n", retorna_numero_palavra(&lista_palavra, &numero_palavras));
 
     return 0;
 }
