@@ -21,8 +21,8 @@ typedef struct lista_linha {
 // uma lista encadeada de linhas, em que os elementos são inteiros que indicam
 // as linhas em que a palavra apareceu
 typedef struct palavra {
-    char cadeia_caracteres[tam_max_cadeia];
     tipo_lista_linha *lista_linha;
+    char cadeia_caracteres[tam_max_cadeia];
 } tipo_palavra;
 
 
@@ -34,6 +34,9 @@ void inicializa_palavra_vazia(tipo_palavra *palavra);
 // que serão retiradas do texto (SET)
 void preenche_cadeia_caracteres(tipo_palavra *palavra, char *palavra_texto);
 
+// Função para inserir as linhas em que uma palavra aparece
+void insere_linha_palavra(tipo_palavra *palavra, int linha);
+
 // Função para retornar a cadeia de caracteres (GET)
 char *retorna_cadeia_caracteres(tipo_palavra *palavra);
 
@@ -42,4 +45,4 @@ void imprime_cadeia_caracteres(tipo_palavra *palavra);
 
 // Função para imprimir palavra, ou seja a cadeia de caracteres e
 // as linhas em que a palavra apareceu
-// void imprime_palavra(tipo_palavra *palavra);
+void imprime_palavra(tipo_palavra *palavra);

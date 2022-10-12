@@ -33,8 +33,11 @@ void remove_palavra_final(tipo_lista_palavra *lista_palavra, tipo_palavra *palav
 // Função para remover uma palavra específica da lista de palavras
 void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_remover);
 
-// Função para verficar se uma palavra específica está na lista de palavras
-int verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica);
+// Função para verficar se uma palavra específica está na lista de palavras e sua posição
+void verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica);
+
+// Função para verficar se uma palavra está na lista no momento de sua inserção
+int verifica_palavra_insere(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica);
 
 // Função para contar o número de palavras e retornar o número de palavras
 int retorna_numero_palavra(tipo_lista_palavra *lista_palavra, tipo_numero_palavras *num_palavras);
