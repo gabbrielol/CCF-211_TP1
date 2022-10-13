@@ -26,10 +26,10 @@ typedef struct palavra {
 } tipo_palavra;
 
 
-// Função para inicizalizar uma palavra vazia:
-// cadeia de caracteres e lista encadeada de linhas
+// Função para inicizalizar uma palavra
 void inicializa_palavra_vazia(tipo_palavra *palavra);
 
+// Função para inicizalizar lista encadeada de linhas vazia
 void inicializa_lista_linha_palavra_vazia(tipo_palavra *palavra);
 
 // Função para preencher a cadeia de caracteres a partir de palavras
@@ -47,4 +47,4 @@ void imprime_cadeia_caracteres(tipo_palavra *palavra);
 
 // Função para imprimir palavra, ou seja a cadeia de caracteres e
 // as linhas em que a palavra apareceu
-// void imprime_palavra(tipo_palavra *palavra);
+void imprime_palavra(tipo_palavra *palavra);

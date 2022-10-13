@@ -33,13 +33,8 @@ void remove_palavra_final(tipo_lista_palavra *lista_palavra, tipo_palavra *palav
 }
 
 void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_remover) {
-    tipo_celula_lista *verifica_celula;
     tipo_celula_lista *p_aux;
     tipo_celula_lista *p_remover;
-    verifica_celula = lista_palavra -> primeiro_lista;
-    while ((verifica_celula -> p_prox_lista != NULL) && (verifica_celula -> p_prox_lista -> item_palavra.cadeia_caracteres != palavra -> cadeia_caracteres)) {
-        verifica_celula = verifica_celula -> p_prox_lista;
-    }
     p_aux = lista_palavra -> primeiro_lista;
     while (p_aux -> p_prox_lista != NULL) {
         if (!strcmp(p_aux -> p_prox_lista -> item_palavra.cadeia_caracteres, palavra_remover)) {
@@ -91,19 +86,19 @@ int verifica_palavra_insere(tipo_lista_palavra *lista_palavra, tipo_palavra *pal
     }
 }
 
-int retorna_numero_palavra(tipo_lista_palavra *lista_palavra, tipo_numero_palavras *numero_palavras) {
-    numero_palavras -> num_palavras = 0;
-    apontador_lista p_aux;
+int retorna_numero_palavra(tipo_lista_palavra *lista_palavra) {
+    tipo_celula_lista *p_aux;
     p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
+    lista_palavra -> num_palavras = 0;
     while (p_aux != NULL) {
-        numero_palavras -> num_palavras++;
+        lista_palavra -> num_palavras++;
         p_aux = p_aux -> p_prox_lista;
     }
-    return numero_palavras -> num_palavras;
+    return lista_palavra -> num_palavras;
 }
 
-void imprime_lista_palavra(tipo_lista_palavra* lista_palavra) {
-    apontador_lista p_aux;
+void imprime_lista_palavra(tipo_lista_palavra *lista_palavra) {
+    tipo_celula_lista *p_aux;
     p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
     if (lista_palavra -> primeiro_lista == lista_palavra -> ultimo_lista) {
         printf("Lista vazia! Nada para mostrar!\n");

@@ -26,11 +26,10 @@ char *retorna_cadeia_caracteres(tipo_palavra *palavra) {
     return palavra -> cadeia_caracteres;
 }
 
-void imprime_cadeira_caracteres(tipo_palavra *palavra) {
+void imprime_cadeia_caracteres(tipo_palavra *palavra) {
     printf("%s\n", retorna_cadeia_caracteres(palavra));
 }
 
-/*
 void imprime_palavra(tipo_palavra *palavra) {
     printf("%s ", retorna_cadeia_caracteres(palavra));
     tipo_celula_linha *p_aux;
@@ -39,5 +38,5 @@ void imprime_palavra(tipo_palavra *palavra) {
         printf("%d ", p_aux -> num_linha);
         p_aux = p_aux -> p_prox_linha;
     }
+    printf("\n");
 }
-*/

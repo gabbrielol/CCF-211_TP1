@@ -14,12 +14,8 @@ typedef struct celula_lista {
 typedef struct lista_palavra {
     apontador_lista primeiro_lista;
     apontador_lista ultimo_lista;
-} tipo_lista_palavra;
-
-typedef struct numero_palavras {
     int num_palavras;
-} tipo_numero_palavras;
-
+} tipo_lista_palavra;
 
 // Função para inicializar uma lista de palavras vazia
 void inicializa_lista_palavra_vazia(tipo_lista_palavra *lista_palavra);
@@ -40,7 +36,7 @@ void verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, 
 int verifica_palavra_insere(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica);
 
 // Função para contar o número de palavras e retornar o número de palavras
-int retorna_numero_palavra(tipo_lista_palavra *lista_palavra, tipo_numero_palavras *numero_palavras);
+int retorna_numero_palavra(tipo_lista_palavra *lista_palavra);
 
 // Função para imprimir toda a lista de palavras
 void imprime_lista_palavra(tipo_lista_palavra *lista_palavra);
