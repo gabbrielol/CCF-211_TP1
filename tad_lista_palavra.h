@@ -23,6 +23,9 @@ void inicializa_lista_palavra_vazia(tipo_lista_palavra *lista_palavra);
 // Função para inserir uma nova palavra na lista de palavras
 void insere_nova_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra);
 
+// Função para inserir a linha em uma palavra que já está na lista de palavras
+void insere_palavra_repetida(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_texto, int linha);
+
 // Função para remover uma palavra do final da lista de palavras
 void remove_palavra_final(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra);
 

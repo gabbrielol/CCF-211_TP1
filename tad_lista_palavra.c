@@ -13,6 +13,17 @@ void insere_nova_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavr
     lista_palavra -> ultimo_lista -> p_prox_lista = NULL;
 }
 
+void insere_palavra_repetida(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_texto, int linha) {
+    tipo_celula_lista *p_aux;
+    p_aux = lista_palavra -> primeiro_lista;
+    while (p_aux -> p_prox_lista != NULL) {
+        if (!strcmp(p_aux -> p_prox_lista -> item_palavra.cadeia_caracteres, palavra_texto)) {
+            insere_linha_palavra(palavra, linha);
+        }
+        p_aux = p_aux -> p_prox_lista;
+    }
+}
+
 void remove_palavra_final(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra) {
     tipo_celula_lista *aux_ultimo;
     tipo_celula_lista *aux_novo_ultimo;
@@ -51,8 +62,8 @@ void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavr
 
 void verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica) {
     tipo_celula_lista *p_aux;
-    int pos = 0;
-    int cont = 0;
+    int pos;
+    int cont;
     pos = 0;
     cont = 0;
     p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;

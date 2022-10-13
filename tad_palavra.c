@@ -4,7 +4,7 @@ void inicializa_palavra_vazia(tipo_palavra *palavra) {
     palavra = (tipo_palavra*) malloc(sizeof(tipo_palavra));
 }
 
-void inicializa_lista_linha_palavra_vazia(tipo_palavra *palavra) {
+void inicializa_lista_linha_vazia(tipo_palavra *palavra) {
     palavra -> lista_linha = (tipo_lista_linha*) malloc(sizeof(tipo_lista_linha));
     palavra -> lista_linha -> primeiro_linha = (apontador_linha) malloc(sizeof(tipo_celula_linha));
     palavra -> lista_linha -> ultimo_linha = palavra -> lista_linha -> primeiro_linha;

@@ -30,7 +30,7 @@ typedef struct palavra {
 void inicializa_palavra_vazia(tipo_palavra *palavra);
 
 // Função para inicizalizar lista encadeada de linhas vazia
-void inicializa_lista_linha_palavra_vazia(tipo_palavra *palavra);
+void inicializa_lista_linha_vazia(tipo_palavra *palavra);
 
 // Função para preencher a cadeia de caracteres a partir de palavras
 // que serão retiradas do texto (SET)
