@@ -40,20 +40,18 @@ int main() {
         if (verifica_pertencimento_lista_palavras(&lista_palavras, palavra_verifica) == 0) {
             inicializa_palavra_vazia(&palavra);
             preenche_cadeia_caracteres(&palavra, palavra_texto);
-            //insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
+            // insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
             insere_nova_palavra(&lista_palavras, &palavra);
             printf("%s // Nova palavra, nova linha\n", retorna_cadeia_caracteres(&palavra));
-
         }
         else {
             preenche_cadeia_caracteres(&palavra, palavra_texto);
-            //insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
+            // insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
             printf("%s // Palavra repetida, nova linha\n", retorna_cadeia_caracteres(&palavra));
         }
         if (caractere_texto == '\n') {
             linha++;
         }
     }
-    imprime_lista_palavras(&lista_palavras);
     return 0;
 }

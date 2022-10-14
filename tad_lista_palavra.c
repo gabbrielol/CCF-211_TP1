@@ -19,11 +19,12 @@ void insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *pala
     lista_palavras -> ultimo_lista -> p_prox_lista = NULL;
 }
 
+/*
 void insere_linha(tipo_lista_palavras *lista_palavras, char *palavra_texto, int linha) {
     apontador_lista_palavras aux_percorre;
     aux_percorre= lista_palavras->primeiro_lista->p_prox_lista;
     while (aux_percorre != NULL) {
-        if (strcmp(aux_percorre -> item_palavra.cadeia_caracteres, palavra_texto) == 0) {
+        if (!strcmp(aux_percorre -> item_palavra.cadeia_caracteres, palavra_texto) == 0) {
             lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha = (apontador_linha) malloc(sizeof(tipo_celula_linha));
             lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha = lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha;
             lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> num_linha = linha;
@@ -50,6 +51,7 @@ void insere_linha_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *pal
         aux_percorre = aux_percorre -> p_prox_lista;
     }
 }
+*/
 
 void remove_palavra_informada(tipo_lista_palavras *lista_palavras, char *palavra_remover) {
     apontador_lista_palavras aux;
@@ -107,14 +109,12 @@ int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, c
     return 0;
 }
 
-void imprime_lista_palavras(tipo_lista_palavras *lista_palavras) {
-    apontador_lista_palavras p_aux;
-    p_aux = lista_palavras -> primeiro_lista -> p_prox_lista;
-    if (lista_palavras -> primeiro_lista == lista_palavras -> ultimo_lista) {
-        printf("Lista vazia! Nada para mostrar!\n");
-    }
-    while (p_aux != NULL){
-        printf("%s\n", p_aux -> item_palavra.cadeia_caracteres);
-        p_aux = p_aux -> p_prox_lista;
+void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra) {
+    apontador_lista_palavras aux_percorre;
+    aux_percorre = lista_palavras -> primeiro_lista -> p_prox_lista;
+    verifica_lista_palavras(lista_palavras);
+    while (aux_percorre != NULL){
+        imprime_palavra(palavra);
+        aux_percorre = aux_percorre -> p_prox_lista;
     }
 }
