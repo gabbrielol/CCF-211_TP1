@@ -7,4 +7,4 @@ typedef struct dicionario {
     int dicionario_num;
 } tipo_dicionario;
 
-void inicializa_dicionario_vazio(tipo_dicionario *dicionario);
+void inicializa_dicionario(tipo_dicionario *dicionario);

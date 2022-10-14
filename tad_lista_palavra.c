@@ -1,121 +1,85 @@
 #include "tad_lista_palavra.h"
 
-void inicializa_lista_palavra_vazia(tipo_lista_palavra *lista_palavra) {
-    lista_palavra -> primeiro_lista = (apontador_lista) malloc(sizeof(tipo_celula_lista));
-    lista_palavra -> ultimo_lista = lista_palavra -> primeiro_lista;
-    lista_palavra -> primeiro_lista -> p_prox_lista = NULL;
+void inicializa_lista_palavras(tipo_lista_palavras *lista_palavras) {
+    lista_palavras -> lista -> primeiro_lista = (apontador_lista) malloc(sizeof(tipo_celula_lista));
+    lista_palavras -> lista -> ultimo_lista = lista_palavras -> lista -> primeiro_lista;
+    lista_palavras -> lista -> ultimo_lista -> p_prox_lista = NULL;
 }
 
-void insere_nova_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra) {
-    lista_palavra -> ultimo_lista -> p_prox_lista = (apontador_lista) malloc(sizeof(tipo_celula_lista));
-    lista_palavra -> ultimo_lista = lista_palavra -> ultimo_lista -> p_prox_lista;
-    lista_palavra -> ultimo_lista -> item_palavra = *palavra;
-    lista_palavra -> ultimo_lista -> p_prox_lista = NULL;
-}
-
-void insere_palavra_repetida(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_texto, int linha) {
-    tipo_celula_lista *p_aux;
-    p_aux = lista_palavra -> primeiro_lista;
-    while (p_aux -> p_prox_lista != NULL) {
-        if (!strcmp(p_aux -> p_prox_lista -> item_palavra.cadeia_caracteres, palavra_texto)) {
-            insere_linha_palavra(palavra, linha);
-        }
-        p_aux = p_aux -> p_prox_lista;
+void verifica_lista_palavras(tipo_lista_palavras *lista_palavras) {
+    if (lista_palavras -> lista -> primeiro_lista == lista_palavras -> lista -> ultimo_lista) {
+        printf("Lista de palavras vazia!\n");
     }
 }
 
-void remove_palavra_final(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra) {
-    tipo_celula_lista *aux_ultimo;
-    tipo_celula_lista *aux_novo_ultimo;
-    if (lista_palavra -> primeiro_lista == lista_palavra -> ultimo_lista) {
-        printf("Lista vazia!\n");
-    }
-    else {
-        aux_ultimo = lista_palavra -> primeiro_lista -> p_prox_lista;
-        aux_novo_ultimo = lista_palavra -> primeiro_lista;
-        while (aux_ultimo -> p_prox_lista != NULL) {
-            aux_novo_ultimo = aux_novo_ultimo -> p_prox_lista;
-            aux_ultimo = aux_ultimo -> p_prox_lista;
-        }
-        aux_novo_ultimo -> p_prox_lista = aux_ultimo -> p_prox_lista;
-        free(aux_ultimo);
-        printf("A última palavra da lista de palavra foi removida com sucesso!\n");
-    }
+void insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, int linha) {
+    insere_linha(palavra -> lista_linha, linha);
+    lista_palavras -> lista -> ultimo_lista -> p_prox_lista = (apontador_lista) malloc(sizeof(tipo_celula_lista));
+    lista_palavras -> lista -> ultimo_lista = lista_palavras -> lista -> ultimo_lista -> p_prox_lista;
+    lista_palavras -> lista -> ultimo_lista -> item_palavra = *palavra;
+    lista_palavras -> lista -> ultimo_lista -> p_prox_lista = NULL;
 }
 
-void remove_palavra_info(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_remover) {
-    tipo_celula_lista *p_aux;
-    tipo_celula_lista *p_remover;
-    p_aux = lista_palavra -> primeiro_lista;
-    while (p_aux -> p_prox_lista != NULL) {
-        if (!strcmp(p_aux -> p_prox_lista -> item_palavra.cadeia_caracteres, palavra_remover)) {
-            p_remover = p_aux -> p_prox_lista;
-            p_aux -> p_prox_lista = p_aux -> p_prox_lista -> p_prox_lista;
-            free(p_remover);
-            if (p_aux -> p_prox_lista == NULL) {
+void remove_palavra_informada(tipo_lista_palavras *lista_palavras, char *palavra_remover) {
+    apontador_lista aux;
+    apontador_lista aux_remover;
+    verifica_lista_palavras(lista_palavras);
+    aux = lista_palavras -> lista -> primeiro_lista; // JEITO DE FILHA DA PUTA
+    while (aux -> p_prox_lista != NULL) {
+        if (!strcmp(aux -> p_prox_lista -> item_palavra.cadeia_caracteres, palavra_remover)) {
+            aux_remover = aux -> p_prox_lista;
+            aux -> p_prox_lista = aux -> p_prox_lista -> p_prox_lista;
+            free(aux_remover);
+            if (aux -> p_prox_lista == NULL) {
                 break;
             }
         }
-        p_aux = p_aux -> p_prox_lista;
+        aux = aux -> p_prox_lista;
     }
 }
 
-void verifica_palavra(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica) {
-    tipo_celula_lista *p_aux;
-    int pos;
-    int cont;
-    pos = 0;
-    cont = 0;
-    p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
-    while (p_aux != NULL) {
-        pos++;
-        if (!strcmp(p_aux -> item_palavra.cadeia_caracteres, palavra_verifica)) {
-            printf("O elemento <%s> está na %d posicao da lista!\n", palavra_verifica, pos);
-            cont++;
-        }
-        p_aux = p_aux -> p_prox_lista;
+void remove_palavra_final(tipo_lista_palavras *lista_palavras) {
+    apontador_lista aux_ultimo;
+    apontador_lista aux_novo_ultimo;
+    verifica_lista_palavras(lista_palavras);
+    aux_ultimo = lista_palavras -> lista -> primeiro_lista -> p_prox_lista;
+    aux_novo_ultimo = lista_palavras -> lista -> primeiro_lista;
+    while (aux_novo_ultimo != NULL) {
+        aux_ultimo = aux_ultimo -> p_prox_lista;
+        aux_novo_ultimo = aux_novo_ultimo -> p_prox_lista;
     }
-    if (cont == 0) {
-        printf("O elemento <%s> não está na lista!\n", palavra_verifica);
-    }
+    aux_novo_ultimo -> p_prox_lista = aux_ultimo -> p_prox_lista;
+    free(aux_ultimo);
 }
 
-int verifica_palavra_insere(tipo_lista_palavra *lista_palavra, tipo_palavra *palavra, char *palavra_verifica) {
-    tipo_celula_lista *p_aux;
-    int cont;
-    cont = 0;
-    p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
-    while (p_aux != NULL) {
-        if (!strcmp(p_aux -> item_palavra.cadeia_caracteres, palavra_verifica)) {
-            cont++;
+int retorna_numero_palavras(tipo_lista_palavras *lista_palavras) {
+    apontador_lista aux_percorre;
+    aux_percorre = lista_palavras -> lista -> primeiro_lista -> p_prox_lista;
+    verifica_lista_palavras(lista_palavras);
+    while (aux_percorre != NULL) {
+        lista_palavras -> num_palavras++;
+        aux_percorre = aux_percorre -> p_prox_lista;
+    }
+    return lista_palavras -> num_palavras;
+}
+
+int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *palavra_verifica) {
+    apontador_lista aux_percorre;
+    aux_percorre = lista_palavras -> lista -> primeiro_lista -> p_prox_lista;
+    while (aux_percorre != NULL) {
+        if (!strcmp(aux_percorre -> item_palavra.cadeia_caracteres , palavra_verifica)) {
             return 1;
         }
-        p_aux = p_aux -> p_prox_lista;
+        aux_percorre = aux_percorre -> p_prox_lista;
     }
-    if (cont == 0) {
-        return 0;
-    }
+    return 0;
 }
 
-int retorna_numero_palavra(tipo_lista_palavra *lista_palavra) {
-    tipo_celula_lista *p_aux;
-    p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
-    lista_palavra -> num_palavras = 0;
-    while (p_aux != NULL) {
-        lista_palavra -> num_palavras++;
-        p_aux = p_aux -> p_prox_lista;
+void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra) {
+    apontador_lista aux_percorre;
+    aux_percorre = lista_palavras -> lista -> primeiro_lista -> p_prox_lista;
+    while (aux_percorre != NULL) {
+        imprime_palavra(palavra);
     }
-    return lista_palavra -> num_palavras;
-}
-
-void imprime_lista_palavra(tipo_lista_palavra *lista_palavra) {
-    tipo_celula_lista *p_aux;
-    p_aux = lista_palavra -> primeiro_lista -> p_prox_lista;
-    if (lista_palavra -> primeiro_lista == lista_palavra -> ultimo_lista) {
-        printf("Lista vazia! Nada para mostrar!\n");
-    }
-    while (p_aux != NULL){
-        printf("%s\n", p_aux -> item_palavra.cadeia_caracteres);
-        p_aux = p_aux -> p_prox_lista;
-    }
+    aux_percorre = aux_percorre -> p_prox_lista;
 }
