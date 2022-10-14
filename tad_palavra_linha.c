@@ -8,7 +8,7 @@ void inicializa_lista_linha(tipo_lista_linha *lista_linha) {
 
 void verifica_lista_linha(tipo_lista_linha *lista_linha) {
     if (lista_linha -> primeiro_linha == lista_linha -> ultimo_linha) {
-        printf("Lista de linhas vazia!\n");
+        printf("Lista de linhas vazia!");
     }
 }
 
@@ -22,6 +22,7 @@ void insere_linha(tipo_lista_linha *lista_linha, int linha) {
 void imprime_linha(tipo_lista_linha *lista_linha) {
     apontador_linha aux_linha;
     aux_linha = lista_linha -> primeiro_linha -> p_prox_linha;
+    verifica_lista_linha(lista_linha);
     while (aux_linha != NULL) {
         printf("%d ", aux_linha -> num_linha);
         aux_linha = aux_linha -> p_prox_linha;

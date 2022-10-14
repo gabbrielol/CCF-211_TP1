@@ -22,7 +22,8 @@ int main() {
     char letra_desejada; // Variável utilizada no menu para mostrar palavras que iniciam com determinada letra
     char palavra_desejada[tam_max_cadeia]; // Variável utilizada no menu para inserir uma palavra no final da lista de palavras;
 
-    // Início do programa com chamada de funções e abertura do arquivo de texto
+    // Inicializa uma lista de palavras vazia
+    inicializa_lista_palavras(&lista_palavras);
 
     // Processo de abertura do arquivo
     FILE *file;
@@ -33,13 +34,25 @@ int main() {
     if (file == NULL) { // Verificando se a abertura do arquivo foi feita corretamente
         printf("Erro na abertura no arquivo!\n");
     }
-    scanf("%s", palavra_texto);
-    inicializa_palavra_vazia(&palavra);
-    preenche_cadeia_caracteres(&palavra, palavra_texto);
-    imprime_cadeia_caracteres(&palavra);
-    insere_nova_palavra(&lista_palavras, &palavra, linha);
-    //imprime_palavra(&palavra);
-    imprime_lista_palavras(&lista_palavras, &palavra);
+    while (!feof(file)) {
+        fscanf(file, "%s%c", palavra_texto, &caractere_texto);
+        strcpy(palavra_verifica, palavra_texto);
+        if (verifica_pertencimento_lista_palavras(&lista_palavras, palavra_verifica) == 0) {
+            inicializa_palavra_vazia(&palavra);
+            preenche_cadeia_caracteres(&palavra, palavra_texto);
+            //insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
+            insere_nova_palavra(&lista_palavras, &palavra);
+            printf("Nova palavra, nova linha // %s ", retorna_cadeia_caracteres(&palavra));
 
+        }
+        else {
+            //insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
+            printf("Nova palavra, nova linha // %s ", retorna_cadeia_caracteres(&palavra));
+        }
+        if (caractere_texto == '\n') {
+            linha++;
+        }
+    }
+    imprime_lista_palavras(&lista_palavras);
     return 0;
 }
