@@ -19,16 +19,32 @@ void insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *pala
     lista_palavras -> ultimo_lista -> p_prox_lista = NULL;
 }
 
+void insere_linha(tipo_lista_palavras *lista_palavras, char *palavra_texto, int linha) {
+    apontador_lista_palavras aux_percorre;
+    aux_percorre= lista_palavras->primeiro_lista->p_prox_lista;
+    while (aux_percorre != NULL) {
+        if (strcmp(aux_percorre -> item_palavra.cadeia_caracteres, palavra_texto) == 0) {
+            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha = (apontador_linha) malloc(sizeof(tipo_celula_linha));
+            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha = lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha;
+            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> num_linha = linha;
+            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha = NULL;
+            break;
+        }
+        aux_percorre = aux_percorre -> p_prox_lista;
+    }
+}
+
+
 void insere_linha_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, char *palavra_texto, int linha) {
     apontador_lista_palavras aux_percorre;
     aux_percorre = lista_palavras -> primeiro_lista -> p_prox_lista;
     while (aux_percorre != NULL) {
         if (strcmp(aux_percorre -> item_palavra.cadeia_caracteres, palavra_texto) == 0) {
-            insere_linha(palavra -> lista_linha, linha);
+            insere_linha(lista_palavras, palavra_texto, linha);
             break;
         }
         else {
-            insere_linha(palavra -> lista_linha, linha);
+            insere_linha(lista_palavras, palavra_texto, linha);
             break;
         }
         aux_percorre = aux_percorre -> p_prox_lista;
@@ -92,7 +108,7 @@ int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, c
 }
 
 void imprime_lista_palavras(tipo_lista_palavras *lista_palavras) {
-    tipo_celula_lista_palavras *p_aux;
+    apontador_lista_palavras p_aux;
     p_aux = lista_palavras -> primeiro_lista -> p_prox_lista;
     if (lista_palavras -> primeiro_lista == lista_palavras -> ultimo_lista) {
         printf("Lista vazia! Nada para mostrar!\n");

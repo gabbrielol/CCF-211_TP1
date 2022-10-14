@@ -26,6 +26,8 @@ void verifica_lista_palavras(tipo_lista_palavras *lista_palavras);
 // Função para inserir uma nova palavra na lista de palavras
 void insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra);
 
+void insere_linha(tipo_lista_palavras *lista_palavras, char *palavra_texto, int linha);
+
 void insere_linha_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, char *palavra_texto, int linha);
 
 // Função para remover uma palavra específica da lista de palavras

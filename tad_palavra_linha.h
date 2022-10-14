@@ -22,7 +22,7 @@ void inicializa_lista_linha(tipo_lista_linha *lista_linha);
 void verifica_lista_linha(tipo_lista_linha *lista_linha);
 
 // Função para verificar se a lista de linhas está vazia
-void insere_linha(tipo_lista_linha *lista_linha, int linha);
+// void insere_linha(tipo_lista_linha *lista_linha, int linha);
 
 // Função para imprimir a lista de linhas
 void imprime_linha(tipo_lista_linha *lista_linha);
