@@ -14,8 +14,7 @@ char *retorna_cadeia_caracteres(tipo_palavra *palavra) {
 }
 
 void imprime_cadeia_caracteres(tipo_palavra *palavra) {
-    printf("%s", retorna_cadeia_caracteres(palavra));
-    printf("\n");
+    printf("%s ", retorna_cadeia_caracteres(palavra));
 }
 
 void imprime_palavra(tipo_palavra *palavra, tipo_lista_linha *lista_linha) {

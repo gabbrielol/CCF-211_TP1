@@ -19,9 +19,6 @@ typedef struct {
 // Função para inicizalizar uma lista encadeada de linhas vazia
 void inicializa_lista_linha(tipo_lista_linha *lista_linha);
 
-// Inicinado um contador auxiliar
-void auxiliador_insere_linha(tipo_lista_linha *lista_linha, int linha);
-
 // Função para verificar se a lista de linhas está vazia
 void verifica_lista_linha(tipo_lista_linha *lista_linha);
 

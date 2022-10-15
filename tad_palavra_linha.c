@@ -6,13 +6,6 @@ void inicializa_lista_linha(tipo_lista_linha *lista_linha) {
     lista_linha -> primeiro_linha -> p_prox_linha = NULL;
 }
 
-void auxiliador_insere_linha(tipo_lista_linha *lista_linha, int linha) {
-    lista_linha -> aux_linha = lista_linha -> ultimo_linha -> num_linha;
-    if (lista_linha -> aux_linha != linha) {
-        insere_linha(lista_linha, linha);
-    }
-}
-
 void verifica_lista_linha(tipo_lista_linha *lista_linha) {
     if (lista_linha -> primeiro_linha == lista_linha -> ultimo_linha) {
         printf("Lista de linhas vazia!");
@@ -20,10 +13,13 @@ void verifica_lista_linha(tipo_lista_linha *lista_linha) {
 }
 
 void insere_linha(tipo_lista_linha *lista_linha, int linha) {
-    lista_linha -> ultimo_linha -> p_prox_linha = (apontador_linha) malloc(sizeof(tipo_celula_linha));
-    lista_linha -> ultimo_linha = lista_linha -> ultimo_linha -> p_prox_linha;
-    lista_linha -> ultimo_linha -> num_linha = linha;
-    lista_linha -> ultimo_linha -> p_prox_linha = NULL;
+    lista_linha -> aux_linha = lista_linha -> ultimo_linha -> num_linha;
+    if (linha != lista_linha -> aux_linha) {
+        lista_linha -> ultimo_linha -> p_prox_linha = (apontador_linha) malloc(sizeof(tipo_celula_linha));
+        lista_linha -> ultimo_linha = lista_linha -> ultimo_linha -> p_prox_linha;
+        lista_linha -> ultimo_linha -> num_linha = linha;
+        lista_linha -> ultimo_linha -> p_prox_linha = NULL;
+    }
 }
 
 void imprime_linha(tipo_lista_linha *lista_linha) {

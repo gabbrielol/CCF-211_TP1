@@ -63,11 +63,11 @@ int retorna_numero_palavras(tipo_lista_palavras *lista_palavras) {
     return lista_palavras -> numero_palavras;
 }
 
-int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *palavra_verifica) {
+int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *char_palavra) {
     apontador_lista_palavras aux_percorre;
     aux_percorre = lista_palavras -> primeiro_lista -> p_prox_lista;
     while (aux_percorre != NULL) {
-        if (!strcmp(aux_percorre -> item_palavra.cadeia_caracteres, palavra_verifica)) {
+        if (!strcmp(aux_percorre -> item_palavra.cadeia_caracteres, char_palavra)) {
             return 1;
         }
         aux_percorre = aux_percorre -> p_prox_lista;
@@ -77,8 +77,8 @@ int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, c
 
 void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, tipo_lista_linha *lista_linha) {
     apontador_lista_palavras aux_palavra;
-    aux_palavra = lista_palavras -> primeiro_lista -> p_prox_lista;
-    while (aux_palavra != NULL) {
+    aux_palavra = lista_palavras -> primeiro_lista;
+    while (aux_palavra -> p_prox_lista != NULL) {
         imprime_palavra(palavra, lista_linha);
         aux_palavra = aux_palavra -> p_prox_lista;
     }

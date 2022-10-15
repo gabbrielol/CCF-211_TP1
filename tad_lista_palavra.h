@@ -36,7 +36,7 @@ void remove_palavra_final(tipo_lista_palavras *lista_palavras);
 int retorna_numero_palavras(tipo_lista_palavras *lista_palavras);
 
 // Função para contar o número de palavras e retornar o número de palavras
-int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *palavra_verifica);
+int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *char_palavra);
 
 // Função para imprimir toda a lista de palavras
 void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, tipo_lista_linha *lista_linha);

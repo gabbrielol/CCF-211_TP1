@@ -37,26 +37,28 @@ int main() {
         printf("Erro na abertura no arquivo!\n");
     }
 
+    // Processo de leitura do arquivo e inserção
     while (!feof(file)) {
         fscanf(file, "%s%c", palavra_texto, &caractere_texto);
         if (verifica_pertencimento_lista_palavras(&lista_palavras, palavra_texto) == 0) {
             inicializa_palavra_vazia(&palavra);
             inicializa_lista_linha(&lista_linha);
             preenche_cadeia_caracteres(&palavra, palavra_texto);
-            auxiliador_insere_linha(&lista_linha, linha);
+            insere_linha(&lista_linha, linha);
             insere_nova_palavra(&lista_palavras, &palavra);
         }
         else {
             preenche_cadeia_caracteres(&palavra, palavra_texto);
-            auxiliador_insere_linha(&lista_linha, linha);
+            insere_linha(&lista_linha, linha);
         }
         if (caractere_texto == '\n') {
             linha++;
-            
         }
         imprime_palavra(&palavra, &lista_linha);
     }
+
     printf("\n\n\n");
+
     imprime_lista_palavras(&lista_palavras, &palavra, &lista_linha);
     return 0;
 }
@@ -76,27 +78,27 @@ int main() {
 //     inicializa_palavra_vazia(&palavra);
 //     inicializa_lista_linha(&lista_linha);
 //     preenche_cadeia_caracteres(&palavra, "palavra");
-//     auxiliador_insere_linha(&lista_linha, 1);
-//     auxiliador_insere_linha(&lista_linha, 2);
-//     auxiliador_insere_linha(&lista_linha, 3);
+//     insere_linha(&lista_linha, 1);
+//     insere_linha(&lista_linha, 2);
+//     insere_linha(&lista_linha, 3);
 //     imprime_palavra(&palavra, &lista_linha);
 //     insere_nova_palavra(&lista_palavras, &palavra);
 
 //     inicializa_palavra_vazia(&palavra);
 //     inicializa_lista_linha(&lista_linha);
 //     preenche_cadeia_caracteres(&palavra, "gato");
-//     auxiliador_insere_linha(&lista_linha, 4);
-//     auxiliador_insere_linha(&lista_linha, 5);
-//     auxiliador_insere_linha(&lista_linha, 6);
+//     insere_linha(&lista_linha, 4);
+//     insere_linha(&lista_linha, 5);
+//     insere_linha(&lista_linha, 6);
 //     imprime_palavra(&palavra, &lista_linha);
 //     insere_nova_palavra(&lista_palavras, &palavra);
 
 //     inicializa_palavra_vazia(&palavra);
 //     inicializa_lista_linha(&lista_linha);
 //     preenche_cadeia_caracteres(&palavra, "cachorro");
-//     auxiliador_insere_linha(&lista_linha, 7);
-//     auxiliador_insere_linha(&lista_linha, 8);
-//     auxiliador_insere_linha(&lista_linha, 9);
+//     insere_linha(&lista_linha, 7);
+//     insere_linha(&lista_linha, 8);
+//     insere_linha(&lista_linha, 9);
 //     imprime_palavra(&palavra, &lista_linha);
 //     insere_nova_palavra(&lista_palavras, &palavra);
 
