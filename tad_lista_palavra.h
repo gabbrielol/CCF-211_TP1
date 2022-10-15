@@ -39,4 +39,4 @@ int retorna_numero_palavras(tipo_lista_palavras *lista_palavras);
 int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *char_palavra);
 
 // Função para imprimir toda a lista de palavras
-void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, tipo_lista_linha *lista_linha);
+void imprime_lista_palavras(tipo_lista_palavras *lista_palavras);

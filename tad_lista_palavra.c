@@ -75,11 +75,12 @@ int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, c
     return 0;
 }
 
-void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, tipo_lista_linha *lista_linha) {
+void imprime_lista_palavras(tipo_lista_palavras *lista_palavras) {
     apontador_lista_palavras aux_palavra;
-    aux_palavra = lista_palavras -> primeiro_lista;
-    while (aux_palavra -> p_prox_lista != NULL) {
-        imprime_palavra(palavra, lista_linha);
+    aux_palavra = lista_palavras -> primeiro_lista -> p_prox_lista;
+    while (aux_palavra != NULL) {
+        imprime_palavra(&aux_palavra -> item_palavra, &aux_palavra -> item_palavra.lista_linha);
+        printf("\n");
         aux_palavra = aux_palavra -> p_prox_lista;
     }
 }

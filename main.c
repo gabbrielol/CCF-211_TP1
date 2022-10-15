@@ -45,21 +45,17 @@ int main() {
             inicializa_lista_linha(&lista_linha);
             preenche_cadeia_caracteres(&palavra, palavra_texto);
             insere_linha(&lista_linha, linha);
+            insere_lista_linha_palavra(&palavra, &lista_linha);
             insere_nova_palavra(&lista_palavras, &palavra);
         }
         else {
-            preenche_cadeia_caracteres(&palavra, palavra_texto);
             insere_linha(&lista_linha, linha);
         }
         if (caractere_texto == '\n') {
             linha++;
         }
-        imprime_palavra(&palavra, &lista_linha);
     }
-
-    printf("\n\n\n");
-
-    imprime_lista_palavras(&lista_palavras, &palavra, &lista_linha);
+    imprime_lista_palavras(&lista_palavras);
     return 0;
 }
 
