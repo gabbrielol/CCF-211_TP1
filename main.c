@@ -9,7 +9,7 @@ int main() {
     tipo_lista_linha lista_linha; // Tipo lista de linhas, contém a lista de palavras
     tipo_palavra palavra; // Tipo palavra, contém a palavra
     tipo_lista_palavras lista_palavras; // Tipo lista de palavras, contém a lista de palavras
-    tipo_dicionario dicionario; // Tipo dicionário, contém a coleção de listas de palavras em ordem alfabética
+    // tipo_dicionario dicionario; // Tipo dicionário, contém a coleção de listas de palavras em ordem alfabética
 
     // Declaração de variáveis gerais, que serão utilizadas ao longo do programa
     char nome_arquivo[tam_max_cadeia]; // Variável que recebe o nome do arquivo para processor no prgrama
@@ -76,27 +76,27 @@ int main() {
 //     inicializa_palavra_vazia(&palavra);
 //     inicializa_lista_linha(&lista_linha);
 //     preenche_cadeia_caracteres(&palavra, "palavra");
-//     insere_linha(&lista_linha, 1);
-//     insere_linha(&lista_linha, 2);
-//     insere_linha(&lista_linha, 3);
+//     auxiliador_insere_linha(&lista_linha, 1);
+//     auxiliador_insere_linha(&lista_linha, 2);
+//     auxiliador_insere_linha(&lista_linha, 3);
 //     imprime_palavra(&palavra, &lista_linha);
 //     insere_nova_palavra(&lista_palavras, &palavra);
 
 //     inicializa_palavra_vazia(&palavra);
 //     inicializa_lista_linha(&lista_linha);
 //     preenche_cadeia_caracteres(&palavra, "gato");
-//     insere_linha(&lista_linha, 4);
-//     insere_linha(&lista_linha, 5);
-//     insere_linha(&lista_linha, 6);
+//     auxiliador_insere_linha(&lista_linha, 4);
+//     auxiliador_insere_linha(&lista_linha, 5);
+//     auxiliador_insere_linha(&lista_linha, 6);
 //     imprime_palavra(&palavra, &lista_linha);
 //     insere_nova_palavra(&lista_palavras, &palavra);
 
 //     inicializa_palavra_vazia(&palavra);
 //     inicializa_lista_linha(&lista_linha);
 //     preenche_cadeia_caracteres(&palavra, "cachorro");
-//     insere_linha(&lista_linha, 7);
-//     insere_linha(&lista_linha, 8);
-//     insere_linha(&lista_linha, 9);
+//     auxiliador_insere_linha(&lista_linha, 7);
+//     auxiliador_insere_linha(&lista_linha, 8);
+//     auxiliador_insere_linha(&lista_linha, 9);
 //     imprime_palavra(&palavra, &lista_linha);
 //     insere_nova_palavra(&lista_palavras, &palavra);
 
