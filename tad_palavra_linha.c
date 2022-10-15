@@ -6,6 +6,13 @@ void inicializa_lista_linha(tipo_lista_linha *lista_linha) {
     lista_linha -> primeiro_linha -> p_prox_linha = NULL;
 }
 
+void auxiliador_insere_linha(tipo_lista_linha *lista_linha, int linha) {
+    lista_linha -> aux_linha = lista_linha -> ultimo_linha -> num_linha;
+    if (lista_linha -> aux_linha != linha) {
+        insere_linha(lista_linha, linha);
+    }
+}
+
 void verifica_lista_linha(tipo_lista_linha *lista_linha) {
     if (lista_linha -> primeiro_linha == lista_linha -> ultimo_linha) {
         printf("Lista de linhas vazia!");

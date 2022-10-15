@@ -3,7 +3,7 @@
 #include <string.h>
 #include "tad_palavra_linha.h"
 
-#define tam_max_cadeia 50 // Define tamanho máximo para a cadeia de caracteres
+#define tam_max_cadeia 100 // Define tamanho máximo para a cadeia de caracteres
 
 // Declarando o tipo palavra, que contém uma cadeia de caracteres e
 // uma lista encadeada de linhas, em que os elementos são inteiros que indicam
