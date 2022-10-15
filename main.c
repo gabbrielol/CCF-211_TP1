@@ -6,6 +6,7 @@
 int main() {
     // Declaração de variáveis, definidas em cada TAD,
     // que serão utilizadas ao longo do programa
+    tipo_lista_linha lista_linha; // Tipo lista de linhas, contém a lista de palavras
     tipo_palavra palavra; // Tipo palavra, contém a palavra
     tipo_lista_palavras lista_palavras; // Tipo lista de palavras, contém a lista de palavras
     tipo_dicionario dicionario; // Tipo dicionário, contém a coleção de listas de palavras em ordem alfabética
@@ -17,6 +18,7 @@ int main() {
     char palavra_verifica[tam_max_cadeia]; // Variável utilizada no processo de verificar a inserção/pertencimento de uma palavra
     char palavra_remover[tam_max_cadeia]; // Variável utilizada para remover uma determinada palavra do texto
     int linha; linha = 1; // Variável utilizada para contar linhas e auxiliar na identificação da linha
+    int aux_linha; aux_linha = 1;
     int loop; loop = 1; // Variável utilizada no menu
     int option; // Variável utilizada no menu
     char letra_desejada; // Variável utilizada no menu para mostrar palavras que iniciam com determinada letra
@@ -30,28 +32,32 @@ int main() {
     file = NULL;
     printf("Nome do arquivo que deseja abrir: ");
     scanf("%s", nome_arquivo); // Recebendo o nome do arquivo
-    file = fopen(nome_arquivo, "r"); // Abrindo o arquivo em mode de leitura
+    file = fopen(nome_arquivo, "r"); // Abrindo o arquivo em modo de leitura
     if (file == NULL) { // Verificando se a abertura do arquivo foi feita corretamente
         printf("Erro na abertura no arquivo!\n");
     }
     while (!feof(file)) {
         fscanf(file, "%s%c", palavra_texto, &caractere_texto);
-        strcpy(palavra_verifica, palavra_texto);
-        if (verifica_pertencimento_lista_palavras(&lista_palavras, palavra_verifica) == 0) {
+        if (verifica_pertencimento_lista_palavras(&lista_palavras, palavra_texto) == 0) {
             inicializa_palavra_vazia(&palavra);
+            inicializa_lista_linha(&lista_linha);
             preenche_cadeia_caracteres(&palavra, palavra_texto);
-            // insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
+            insere_linha(&lista_linha, linha);
             insere_nova_palavra(&lista_palavras, &palavra);
-            printf("%s // Nova palavra, nova linha\n", retorna_cadeia_caracteres(&palavra));
         }
         else {
             preenche_cadeia_caracteres(&palavra, palavra_texto);
-            // insere_linha_palavra(&lista_palavras, &palavra, palavra_texto, linha); NÃO FUNCIONA
-            printf("%s // Palavra repetida, nova linha\n", retorna_cadeia_caracteres(&palavra));
+            if (linha != aux_linha) {
+                insere_linha(&lista_linha, linha);
+            }
         }
         if (caractere_texto == '\n') {
             linha++;
+            aux_linha++;
         }
+        imprime_palavra(&palavra, &lista_linha);
     }
+    printf("\n\n\n");
+    imprime_lista_palavras(&lista_palavras, &palavra, &lista_linha);
     return 0;
 }

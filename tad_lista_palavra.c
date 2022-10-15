@@ -19,40 +19,6 @@ void insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *pala
     lista_palavras -> ultimo_lista -> p_prox_lista = NULL;
 }
 
-/*
-void insere_linha(tipo_lista_palavras *lista_palavras, char *palavra_texto, int linha) {
-    apontador_lista_palavras aux_percorre;
-    aux_percorre= lista_palavras->primeiro_lista->p_prox_lista;
-    while (aux_percorre != NULL) {
-        if (!strcmp(aux_percorre -> item_palavra.cadeia_caracteres, palavra_texto) == 0) {
-            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha = (apontador_linha) malloc(sizeof(tipo_celula_linha));
-            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha = lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha;
-            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> num_linha = linha;
-            lista_palavras->primeiro_lista->p_prox_lista->item_palavra.lista_linha -> ultimo_linha -> p_prox_linha = NULL;
-            break;
-        }
-        aux_percorre = aux_percorre -> p_prox_lista;
-    }
-}
-
-
-void insere_linha_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, char *palavra_texto, int linha) {
-    apontador_lista_palavras aux_percorre;
-    aux_percorre = lista_palavras -> primeiro_lista -> p_prox_lista;
-    while (aux_percorre != NULL) {
-        if (strcmp(aux_percorre -> item_palavra.cadeia_caracteres, palavra_texto) == 0) {
-            insere_linha(lista_palavras, palavra_texto, linha);
-            break;
-        }
-        else {
-            insere_linha(lista_palavras, palavra_texto, linha);
-            break;
-        }
-        aux_percorre = aux_percorre -> p_prox_lista;
-    }
-}
-*/
-
 void remove_palavra_informada(tipo_lista_palavras *lista_palavras, char *palavra_remover) {
     apontador_lista_palavras aux;
     apontador_lista_palavras aux_remover;
@@ -109,12 +75,19 @@ int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, c
     return 0;
 }
 
-void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra) {
-    apontador_lista_palavras aux_percorre;
-    aux_percorre = lista_palavras -> primeiro_lista -> p_prox_lista;
+void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, tipo_lista_linha *lista_linha) {
+    apontador_lista_palavras aux_percorre_palavra;
+    apontador_linha aux_percorre_linha;
+    aux_percorre_palavra = lista_palavras -> primeiro_lista -> p_prox_lista;
+    aux_percorre_linha = lista_linha -> primeiro_linha -> p_prox_linha;
     verifica_lista_palavras(lista_palavras);
-    while (aux_percorre != NULL){
-        imprime_palavra(palavra);
-        aux_percorre = aux_percorre -> p_prox_lista;
+    while (aux_percorre_palavra != NULL) {
+        printf("%s ", aux_percorre_palavra -> item_palavra.cadeia_caracteres);
+        aux_percorre_palavra = aux_percorre_palavra -> p_prox_lista;
+        while (aux_percorre_linha != NULL) {
+            printf("%d ", aux_percorre_linha -> num_linha);
+            aux_percorre_linha = aux_percorre_linha -> p_prox_linha;
+        }
+        printf("\n");
     }
 }

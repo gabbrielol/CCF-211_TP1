@@ -28,4 +28,4 @@ void imprime_cadeia_caracteres(tipo_palavra *palavra);
 
 // Função para imprimir palavra, ou seja a cadeia de caracteres e
 // as linhas em que a palavra apareceu
-void imprime_palavra(tipo_palavra *palavra);
+void imprime_palavra(tipo_palavra *palavra, tipo_lista_linha *lista_linha);

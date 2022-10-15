@@ -26,10 +26,6 @@ void verifica_lista_palavras(tipo_lista_palavras *lista_palavras);
 // Função para inserir uma nova palavra na lista de palavras
 void insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra);
 
-// void insere_linha(tipo_lista_palavras *lista_palavras, char *palavra_texto, int linha);
-
-// void insere_linha_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, char *palavra_texto, int linha);
-
 // Função para remover uma palavra específica da lista de palavras
 void remove_palavra_informada(tipo_lista_palavras *lista_palavras, char *palavra_remover);
 
@@ -43,4 +39,4 @@ int retorna_numero_palavras(tipo_lista_palavras *lista_palavras);
 int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *palavra_verifica);
 
 // Função para imprimir toda a lista de palavras
-void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra);
+void imprime_lista_palavras(tipo_lista_palavras *lista_palavras, tipo_palavra *palavra, tipo_lista_linha *lista_linha);
