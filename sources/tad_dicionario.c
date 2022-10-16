@@ -43,7 +43,7 @@ void constroi_dicionario(tipo_dicionario *dicionario, char *nome_arquivo) {
                 free(palavra);
                 cont_caracteres = 0;
                 memset(palavra_texto, 0, strlen(palavra_texto));
-            break;
+                break;
             case '\n' :
                 palavra = inicializa_palavra_vazia();
                 preenche_cadeia_caracteres(palavra, palavra_texto, linha);
@@ -52,7 +52,7 @@ void constroi_dicionario(tipo_dicionario *dicionario, char *nome_arquivo) {
                 linha++;
                 cont_caracteres = 0;
                 memset(palavra_texto, 0, strlen(palavra_texto));
-            break;
+                break;
             default:
                 palavra_texto[cont_caracteres] = caractere_texto;
                 cont_caracteres++;
@@ -99,8 +99,10 @@ void imprime_dicionario_letra(tipo_dicionario *dicionario, char letra_alfabeto) 
 void imprime_dicionario_completo(tipo_dicionario *dicionario) {
     int i;
     for (i = 0; i < 26; i++) {
+        printf("\n--------------------------------------------------------------\n");
         printf("Letra |%c| :\n", dicionario -> alfabeto[i].identificador_upper);
         printf("\n");
         imprime_lista_palavras(&dicionario -> alfabeto[i].lista_palavras);
+        printf("--------------------------------------------------------------\n");
     }
 }

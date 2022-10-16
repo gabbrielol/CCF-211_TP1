@@ -42,7 +42,7 @@ int main() {
                 loop = 0;
                 break;
             default :
-                printf("Erro: opcao invalida. Tente novamente.\n");
+                printf("Opção inválida! Tente novamente.\n");
         }
     }
     return 0;
