@@ -42,10 +42,10 @@ int insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra palavr
     return 1;
 }
 
-int remove_palavra_informada(tipo_lista_palavras *lista_palavras, tipo_palavra palavra) {
+int remove_palavra_informada(tipo_lista_palavras *lista_palavras, char *char_palavra) {
     apontador_lista_palavras p_ultimo; p_ultimo = lista_palavras -> primeiro_lista -> p_prox_lista;
     apontador_lista_palavras p_novo_ultimo; p_novo_ultimo = lista_palavras -> primeiro_lista;
-    while (p_ultimo != NULL && strcmp(p_ultimo -> item_palavra.cadeia_caracteres, palavra.cadeia_caracteres) != 0) {
+    while (p_ultimo != NULL && strcmp(p_ultimo -> item_palavra.cadeia_caracteres, char_palavra) != 0) {
         p_novo_ultimo = p_novo_ultimo -> p_prox_lista;
         p_ultimo = p_ultimo -> p_prox_lista;
     }

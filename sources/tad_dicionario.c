@@ -19,7 +19,7 @@ void constroi_dicionario(tipo_dicionario *dicionario, char *nome_arquivo) {
     inicializa_dicionario(dicionario);
     tipo_palavra *palavra = NULL;
 
-    char palavra_texto[256];
+    char palavra_texto[100];
     char caractere_texto;
     int linha; linha = 1;
     int cont_caracteres; cont_caracteres = 0;
@@ -29,6 +29,7 @@ void constroi_dicionario(tipo_dicionario *dicionario, char *nome_arquivo) {
 
     if (arquivo == NULL) {
         printf("Erro na abertura do arquivo de texto!\n");
+        return;
     }
 
     do {
@@ -88,21 +89,25 @@ void imprime_dicionario_letra(tipo_dicionario *dicionario, char letra_alfabeto) 
         return;
     }
     printf("Letra |%c| :\n", letra_alfabeto);
+    printf("\n");
     if (retorna_numero_palavras(&dicionario -> alfabeto[aux].lista_palavras) > 0) {
         imprime_lista_palavras(&dicionario -> alfabeto[aux].lista_palavras);
+        return;
     }
     else {
         printf("Não existem palavras com a letra informada!\n");
+        return;
     }
 }
 
 void imprime_dicionario_completo(tipo_dicionario *dicionario) {
     int i;
     for (i = 0; i < 26; i++) {
-        printf("\n--------------------------------------------------------------\n");
+        printf("\n------------------------------------------------------------\n");
         printf("Letra |%c| :\n", dicionario -> alfabeto[i].identificador_upper);
         printf("\n");
         imprime_lista_palavras(&dicionario -> alfabeto[i].lista_palavras);
-        printf("--------------------------------------------------------------\n");
+        printf("------------------------------------------------------------\n");
+        printf("\n\n");
     }
 }

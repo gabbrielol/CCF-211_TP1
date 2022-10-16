@@ -26,7 +26,7 @@ int verifica_lista_palavras(tipo_lista_palavras *lista_palavras);
 int insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra palavra);
 
 // Função para remover uma palavra específica da lista de palavras
-int remove_palavra_informada(tipo_lista_palavras *lista_palavras, tipo_palavra palavra);
+int remove_palavra_informada(tipo_lista_palavras *lista_palavras, char *char_palavra);
 
 // Função para remover a palavra do final da lista de palavras
 int remove_palavra_final(tipo_lista_palavras *lista_palavras);
@@ -34,7 +34,7 @@ int remove_palavra_final(tipo_lista_palavras *lista_palavras);
 // Função para contar o número de palavras e retornar o número de palavras
 int retorna_numero_palavras(tipo_lista_palavras *lista_palavras);
 
-// Função para contar o número de palavras e retornar o número de palavras
+// Função para verificar se uma palavra faz parte da lista de palavras
 int verifica_pertencimento_lista_palavras(tipo_lista_palavras *lista_palavras, char *char_palavra);
 
 // Função para imprimir toda a lista de palavras

@@ -21,7 +21,7 @@ void inicializa_dicionario(tipo_dicionario *dicionario);
 // Função para construir o dicionário recebendo um texto como parâmetro
 void constroi_dicionario(tipo_dicionario *dicionario, char *nome_arquivo);
 
-// Função para insere a lista encadeade de palavras de cada letra
+// Função para inserir a lista encadeade de palavras de cada letra
 int insere_dicionario(tipo_dicionario *dicionario, tipo_palavra palavra);
 
 // Função para imprimir a lista de palavras de uma determinada letra do alfabeto
