@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tad_dicionario.h"
+#include "headers/tad_dicionario.h"
 
 int main() {
     tipo_dicionario dicionario;

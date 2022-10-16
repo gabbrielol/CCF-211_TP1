@@ -1,4 +1,4 @@
-#include "tad_lista_palavra.h"
+#include "../headers/tad_lista_palavra.h"
 
 void inicializa_lista_palavras(tipo_lista_palavras *lista_palavras) {
     lista_palavras -> primeiro_lista = (tipo_celula_lista_palavras*) malloc(sizeof(tipo_celula_lista_palavras));

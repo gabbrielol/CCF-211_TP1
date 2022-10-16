@@ -1,4 +1,4 @@
-#include "tad_dicionario.h"
+#include "../headers/tad_dicionario.h"
 
 #define UPPER_A 65
 #define UPPER_Z 90

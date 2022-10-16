@@ -1,4 +1,4 @@
-#include "tad_palavra_linha.h"
+#include "../headers/tad_palavra_linha.h"
 
 void inicializa_lista_linha(tipo_lista_linha *lista_linha) {
     lista_linha -> primeiro_linha = (tipo_celula_linha*) malloc(sizeof(tipo_celula_linha));

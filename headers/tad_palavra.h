@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tad_palavra_linha.h"
+#include "../headers/tad_palavra_linha.h"
 
 // Declarando o tipo palavra, que contém uma cadeia de caracteres e
 // uma lista encadeada de linhas, em que os elementos são inteiros que indicam

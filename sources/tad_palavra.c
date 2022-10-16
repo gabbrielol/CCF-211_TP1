@@ -1,4 +1,4 @@
-#include "tad_palavra.h"
+#include "../headers/tad_palavra.h"
 
 #define UPPER_A 65
 #define UPPER_Z 90

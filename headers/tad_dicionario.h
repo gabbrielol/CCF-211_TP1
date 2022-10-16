@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tad_lista_palavra.h"
+#include "../headers/tad_lista_palavra.h"
 
 // Declarando célula para o dicionário
 typedef struct {

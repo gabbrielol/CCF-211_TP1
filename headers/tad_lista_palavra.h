@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tad_palavra.h"
+#include "../headers/tad_palavra.h"
 
 // Declarando célula para palavra
 typedef struct celula_lista_palavras *apontador_lista_palavras;
