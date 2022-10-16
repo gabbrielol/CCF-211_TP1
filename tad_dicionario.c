@@ -100,6 +100,7 @@ void imprime_dicionario_completo(tipo_dicionario *dicionario) {
     int i;
     for (i = 0; i < 26; i++) {
         printf("Letra |%c| :\n", dicionario -> alfabeto[i].identificador_upper);
+        printf("\n");
         imprime_lista_palavras(&dicionario -> alfabeto[i].lista_palavras);
     }
 }
