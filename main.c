@@ -64,7 +64,6 @@ int main() {
                     dicionario.alfabeto[num_letra].identificador_upper);
                     cont_num_palavras = cont_num_palavras + retorna_numero_palavras(&dicionario.alfabeto[num_letra].lista_palavras);
                     printf("------------------------------------------------------------\n");
-                    printf("\n\n");
                 }
                 printf("\n------------------------------------------------------------\n");
                 printf("Número total de palavras únicas: %d\n", cont_num_palavras);
@@ -87,7 +86,7 @@ int main() {
                 printf("Palavra que deseja verificar: ");
                 scanf("%s", palavra_menu);
                 if (verifica_pertencimento_lista_palavras(&dicionario.alfabeto[num_letra].lista_palavras, palavra_menu) == 1) {
-                    printf("A palavra <%s> foi encontrada na lista de palavras de letra |%c|!\n", palavra_menu, letra_desejada);
+                    printf("A palavra <%s> foi encontrada na lista de palavras de letra |%c|\n", palavra_menu, letra_desejada);
                 }
                 else {
                     printf("A palavra não foi encontrada!\n");
