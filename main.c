@@ -17,7 +17,7 @@ int main() {
     while (loop) {
         printf("\n-------------------- DICIONÁRIO DE AEDS --------------------\n");
         printf("Opções do dicionário:\n");
-        printf("1. Contruir o dicionário do texto\n"); // Constrói o dicionário
+        printf("1. Construir o dicionário do texto\n"); // Constrói o dicionário
         printf("2. Exibir lista de palavras de determinada letra\n"); // Exibe a lista de palavras de uma determinada letra
         printf("3. Exibir toda a lista de palavras do texto\n"); // Exibe toda a lista de palavras do texto
         printf("4. Sair do programa\n"); // Encerrta o programa
