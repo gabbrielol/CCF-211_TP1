@@ -1,7 +1,7 @@
 #include "tad_palavra_linha.h"
 
 void inicializa_lista_linha(tipo_lista_linha *lista_linha) {
-    lista_linha -> primeiro_linha = (apontador_linha) malloc(sizeof(tipo_celula_linha));
+    lista_linha -> primeiro_linha = (tipo_celula_linha*) malloc(sizeof(tipo_celula_linha));
     lista_linha -> ultimo_linha = lista_linha -> primeiro_linha;
     lista_linha -> primeiro_linha -> p_prox_linha = NULL;
 }

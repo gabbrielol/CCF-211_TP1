@@ -1,7 +1,7 @@
 #include "tad_lista_palavra.h"
 
 void inicializa_lista_palavras(tipo_lista_palavras *lista_palavras) {
-    lista_palavras -> primeiro_lista = (apontador_lista_palavras) malloc(sizeof(tipo_celula_lista_palavras));
+    lista_palavras -> primeiro_lista = (tipo_celula_lista_palavras*) malloc(sizeof(tipo_celula_lista_palavras));
     lista_palavras -> ultimo_lista = lista_palavras -> primeiro_lista;
     lista_palavras -> ultimo_lista -> p_prox_lista = NULL;
 }
@@ -35,7 +35,7 @@ int insere_nova_palavra(tipo_lista_palavras *lista_palavras, tipo_palavra palavr
         }
         return 2;
     }
-    lista_palavras -> ultimo_lista -> p_prox_lista = (apontador_lista_palavras) malloc(sizeof(tipo_celula_lista_palavras));
+    lista_palavras -> ultimo_lista -> p_prox_lista = (tipo_celula_lista_palavras*) malloc(sizeof(tipo_celula_lista_palavras));
     lista_palavras -> ultimo_lista = lista_palavras -> ultimo_lista -> p_prox_lista;
     lista_palavras -> ultimo_lista -> item_palavra = palavra;
     lista_palavras -> ultimo_lista -> p_prox_lista = NULL;
@@ -52,7 +52,7 @@ int remove_palavra_informada(tipo_lista_palavras *lista_palavras, tipo_palavra p
     if (p_ultimo == NULL) {
         return 0;
     }
-    p_novo_ultimo -> p_prox_lista = p_novo_ultimo -> p_prox_lista;
+    p_novo_ultimo -> p_prox_lista = p_ultimo -> p_prox_lista;
     free(p_ultimo);
     return 1;
 }

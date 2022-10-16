@@ -42,7 +42,7 @@ void constroi_dicionario(tipo_dicionario *dicionario, char *nome_arquivo) {
                 insere_dicionario(dicionario, *palavra);
                 free(palavra);
                 cont_caracteres = 0;
-                memset(palavra, 0, strlen(palavra_texto));
+                memset(palavra_texto, 0, strlen(palavra_texto));
             break;
             case '\n' :
                 palavra = inicializa_palavra_vazia();
@@ -84,7 +84,7 @@ void imprime_dicionario_letra(tipo_dicionario *dicionario, char letra_alfabeto) 
         aux = letra_alfabeto - UPPER_A;
     }
     else {
-        printf("O caractere o informado não existe!\n");
+        printf("O caractere informado não existe!\n");
         return;
     }
     printf("Letra |%c| :\n", letra_alfabeto);
