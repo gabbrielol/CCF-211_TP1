@@ -13,17 +13,16 @@ typedef struct celula_linha {
 typedef struct {
     apontador_linha primeiro_linha;
     apontador_linha ultimo_linha;
-    int aux_linha;
 } tipo_lista_linha;
 
 // Função para inicizalizar uma lista encadeada de linhas vazia
 void inicializa_lista_linha(tipo_lista_linha *lista_linha);
 
 // Função para verificar se a lista de linhas está vazia
-void verifica_lista_linha(tipo_lista_linha *lista_linha);
+int verifica_lista_linha(tipo_lista_linha *lista_linha);
 
 // Função para verificar se a lista de linhas está vazia
-void insere_linha(tipo_lista_linha *lista_linha, int linha);
+int insere_linha(tipo_lista_linha *lista_linha, int linha);
 
 // Função para imprimir a lista de linhas
 void imprime_linha(tipo_lista_linha *lista_linha);

@@ -3,17 +3,29 @@
 #include <string.h>
 #include "tad_lista_palavra.h"
 
-// Declarando célula para dicionário
-typedef struct celula_dicionario *apontador_dicionario;
-typedef struct tipo_celula_dicionario {
-    tipo_lista_palavras *lista_dicionario;
-    apontador_dicionario p_prox_dicio;
+// Declarando célula para o dicionário
+typedef struct {
+    char identificador_upper;
+    char identificador_lower;
+    tipo_lista_palavras lista_palavras;
 } tipo_celula_dicionario;
 
-// Declarando célula para 
+// Declarando o dicionário
 typedef struct {
-    apontador_dicionario primeiro_dicio;
-    apontador_dicionario ultimo_dicio;
+    tipo_celula_dicionario alfabeto[26];
 } tipo_dicionario;
 
-void incializa_dicionario(tipo_dicionario *dicionario);
+// Função para inicializar o dicionário vazio
+void inicializa_dicionario(tipo_dicionario *dicionario);
+
+// Função para construir o dicionário recebendo um texto como parâmetro
+void constroi_dicionario(tipo_dicionario *dicionario, char *nome_arquivo);
+
+// Função para insere a lista encadeade de palavras de cada letra
+int insere_dicionario(tipo_dicionario *dicionario, tipo_palavra palavra);
+
+// Função para imprimir a lista de palavras de uma determinada letra do alfabeto
+void imprime_dicionario_letra(tipo_dicionario *dicionario, char letra_alfabeto);
+
+// Fução para imprimir o dicionário completo com a a lista de palavras de cada letra do alfabeto
+void imprime_dicionario_completo(tipo_dicionario *dicionario);
