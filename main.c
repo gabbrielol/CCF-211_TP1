@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "headers/tad_dicionario.h"
+#include "./headers/tad_dicionario.h"
 
 #define UPPER_A 65
 #define UPPER_Z 90
@@ -33,7 +33,7 @@ int main() {
         printf("6. Verificar se determinada palavra está na lista de palavras do texto\n"); // Verifica se determinada palavra está nas listas
         printf("7. Remover determinada palavra de uma lista de palavras\n"); // Remove um determina palavra de uma determina lista
         printf("8. Instruções para usar o programa\n"); // Breve explicação de como usar o programa
-        printf("9. Sair do programa\n"); // Encerrta o programa
+        printf("9. Sair do programa\n"); // Encerra o programa
         printf("------------------------------------------------------------\n");
         printf("Opção desejada: ");
         scanf("%d", &option);
